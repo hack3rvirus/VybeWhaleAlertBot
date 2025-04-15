@@ -143,7 +143,7 @@ async def check_whales(context: "Application", user_id: int = None, update: Upda
                         text=(
                             f"🚨 Whale Alert! 🐋\n"
                             f"Transaction: ${amount} ({token_symbol})\n"
-                            f"Details on AlphaVybe: https://alphavybe.com/\n\n"
+                            f"Details on AlphaVybe: https://vybe.fyi/\n\n"
                             "What would you like to do next? 👇"
                         ),
                         reply_markup=reply_markup
@@ -183,7 +183,7 @@ async def check_whales(context: "Application", user_id: int = None, update: Upda
                         text=(
                             f"🚨 Whale Alert! 🐋\n"
                             f"Transaction: ${amount} ({token_symbol})\n"
-                            f"Details on AlphaVybe: https://alphavybe.com/\n\n"
+                            f"Details on AlphaVybe: https://vybe.fyi/\n\n"
                             "What would you like to do next? 👇"
                         ),
                         reply_markup=reply_markup
@@ -274,7 +274,7 @@ async def process_token(user_id: int, token_symbol: str, context: "Application")
                 f"📊 {token_symbol} Stats:\n"
                 f"Price: ${price}\n"
                 f"24h Change: {change_24h}% {trend}\n"
-                f"Details on AlphaVybe: https://alphavybe.com/\n\n"
+                f"Details on AlphaVybe: https://vybe.fyi/\n\n"
                 "What would you like to do next? 👇"
             ),
             reply_markup=reply_markup
@@ -346,7 +346,7 @@ async def process_wallet(user_id: int, wallet_address: str, context: "Applicatio
             amount = tx.get("amount_usd", "N/A")
             message += f"💸 Transaction: ${amount}\n"
 
-        message += "\nDetails on AlphaVybe: https://alphavybe.com/\n\nWhat would you like to do next? 👇"
+        message += "\nDetails on AlphaVybe: https://vybe.fyi/\n\nWhat would you like to do next? 👇"
         keyboard = [[InlineKeyboardButton("Track Another Wallet 🔍", callback_data="wallet_tracker")]]
         reply_markup = InlineKeyboardMarkup(keyboard)
         await context.bot.send_message(
