@@ -9,7 +9,7 @@ Here’s what I’ve included in my bot:
 - **Wallet Tracking 🔍**: It monitors Solana wallet activity and displays the last 3 transactions.
 - **Interactive Inline Keyboards**: I added buttons to make navigation seamless, such as "Check Again" or "Set New Threshold."
 - **Input Validation**: I made sure it only accepts valid token symbols and wallet addresses to prevent errors.
-- **AlphaVybe Integration**: Every response includes a link to [AlphaVybe](https://alphavybe.com/) for deeper analytics.
+- **AlphaVybe Integration**: Every response includes a link to [AlphaVybe](https://vybe.fyi/) for deeper analytics.
 - **Error Handling**: I’ve included actionable buttons to retry or get help whenever errors occur.
 
 ## Getting Started
