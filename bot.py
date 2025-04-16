@@ -21,8 +21,8 @@ logger = logging.getLogger(__name__)
 
 # Vybe API endpoints
 VYBE_TRANSACTIONS_URL = "https://api.vybenetwork.xyz/token/transfers?min_amount_usd=5000&limit=10"
-VYBE_TOKEN_URL = "https://api.vybenetwork.xyz/token"  # Base URL for specific token (without {mintAddress})
-VYBE_WALLET_URL = "https://api.vybenetwork.xyz/token/transfers"  # Use token/transfers with address filter
+VYBE_TOKEN_URL = "https://api.vybenetwork.xyz/token"  
+VYBE_WALLET_URL = "https://api.vybenetwork.xyz/token/transfers" 
 
 # Store user thresholds and states in memory
 user_thresholds = {}
@@ -91,7 +91,7 @@ async def check_whales(context: "Application", user_id: int = None, update: Upda
         # Log the full response for debugging
         logger.info(f"Transactions API Data: {data}")
         # Try both "transfers" and "transactions" keys to handle different response formats
-        transactions = data.get("transfers", data.get("transactions", []))  # Adjusted for flexibility
+        transactions = data.get("transfers", data.get("transactions", [])) 
 
         if not transactions:
             logger.info("No transactions found in the response.")
@@ -329,7 +329,7 @@ async def process_wallet(user_id: int, wallet_address: str, context: "Applicatio
         response.raise_for_status()
 
         data = response.json()
-        transactions = data.get("transfers", data.get("transactions", []))[:3]  # Adjusted for flexibility
+        transactions = data.get("transfers", data.get("transactions", []))[:3]  
 
         if not transactions:
             keyboard = [[InlineKeyboardButton("Track Another Wallet 🔍", callback_data="wallet_tracker")]]
@@ -508,7 +508,7 @@ def main() -> None:
 
     application.add_error_handler(error_handler)
 
-    # Set the scheduler timezone to UTC+1 (adjust based on your actual timezone)
+    # Set the scheduler timezone to UTC+1 
     application.job_queue.scheduler.configure(timezone=pytz.timezone("Etc/GMT-1"))
 
     # Schedule whale checks every 120 seconds
